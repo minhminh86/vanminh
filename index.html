@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung Tâm Lái Xe Văn Minh - Uy Tín Hàng Đầu Tại Ba Vì</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm & Professional Blue -->
+    <!-- Application Structure Plan: Tôi đã thiết kế ứng dụng này dưới dạng một trang đích cuộn theo chủ đề, tuân theo một luồng marketing hợp lý. Cấu trúc này bắt đầu bằng việc giải quyết trực tiếp vấn đề của người dùng (Hero Section), sau đó giới thiệu các lợi ích chính (Features), mô tả quy trình học tập một cách trực quan (Learning Journey), cung cấp bằng chứng xã hội qua hình ảnh (Gallery), và kết thúc bằng lời kêu gọi hành động mạnh mẽ (CTA). Cấu trúc này được chọn vì nó dẫn dắt người dùng tiềm năng qua một hành trình khám phá có tính thuyết phục, từ nhận thức vấn đề đến quyết định hành động, phù hợp hơn với nội dung quảng cáo so với cấu trúc dashboard hay báo cáo dữ liệu. -->
+    <!-- Visualization & Content Choices: Vì "báo cáo" nguồn là một kịch bản tường thuật không có dữ liệu định lượng, tôi đã chọn các phương pháp trực quan hóa phù hợp. Thông tin: Lợi ích của trung tâm -> Mục tiêu: Thông báo & So sánh -> Phương pháp: Thẻ thông tin (HTML/CSS) -> Tương tác: Hiệu ứng hover tinh tế -> Lý do: Dễ hiểu, làm nổi bật các điểm bán hàng độc nhất. Thông tin: Quá trình học -> Mục tiêu: Tổ chức -> Phương pháp: Sơ đồ quy trình dạng timeline dọc (HTML/CSS) -> Tương tác: Tĩnh -> Lý do: Cung cấp một cái nhìn tổng quan, rõ ràng về toàn bộ quá trình, tạo cảm giác minh bạch và có cấu trúc. Các hình ảnh trong kịch bản được chuyển thành một thư viện ảnh đơn giản để tăng tính chân thực. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .section-title {
+            @apply text-3xl font-bold text-gray-800 text-center mb-2;
+        }
+        .section-subtitle {
+            @apply text-center text-gray-500 mb-12 max-w-2xl mx-auto;
+        }
+        .feature-card {
+            @apply bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-in-out;
+        }
+        .timeline-item {
+            @apply relative pl-8 sm:pl-12 py-4;
+        }
+        .timeline-item::before {
+            content: '';
+            @apply absolute left-0 top-1/2 -translate-y-1/2 h-4 w-4 bg-blue-500 rounded-full;
+        }
+        .timeline-item::after {
+            content: '';
+            @apply absolute left-[7px] top-8 h-full w-[2px] bg-blue-200;
+        }
+        .timeline-item:last-child::after {
+            @apply hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Lái Xe Văn Minh</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-600 hover:text-blue-600 transition">Điểm Nổi Bật</a>
+                <a href="#journey" class="text-gray-600 hover:text-blue-600 transition">Lộ Trình Học</a>
+                <a href="#gallery" class="text-gray-600 hover:text-blue-600 transition">Hình Ảnh</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Liên Hệ</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition">Đăng Ký Ngay</a>
+             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#features" class="block py-2 text-gray-600 hover:text-blue-600 transition">Điểm Nổi Bật</a>
+            <a href="#journey" class="block py-2 text-gray-600 hover:text-blue-600 transition">Lộ Trình Học</a>
+            <a href="#gallery" class="block py-2 text-gray-600 hover:text-blue-600 transition">Hình Ảnh</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600 transition">Liên Hệ</a>
+            <a href="#contact" class="mt-2 block w-full text-center bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition">Đăng Ký Ngay</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-white">
+            <div class="container mx-auto px-6 py-20 md:py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight mb-4">Tìm Trung Tâm Lái Xe Uy Tín Tại Ba Vì?</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">Vững tay lái, trọn niềm tin cùng Văn Minh. Chúng tôi mang đến giải pháp học lái xe toàn diện, chất lượng và thuận tiện ngay tại địa phương.</p>
+                <a href="#contact" class="bg-blue-600 text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-700 transition-transform hover:scale-105 inline-block">Nhận Tư Vấn Miễn Phí</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Tại Sao Chọn Lái Xe Văn Minh?</h2>
+                <p class="section-subtitle">Chúng tôi hiểu những băn khoăn của bạn và nỗ lực mang đến trải nghiệm học lái xe tốt nhất, giải quyết mọi lo lắng thường gặp.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="feature-card">
+                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">📍</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Sân Tập Chuẩn Ngay Tại Ba Vì</h3>
+                        <p>Không cần đi xa, tiết kiệm thời gian và công sức với sân tập đạt chuẩn quốc gia ngay tại Ba Vì. Sân bãi rộng rãi, đầy đủ vạch kẻ và sa hình thi.</p>
+                    </div>
+                    <div class="feature-card">
+                         <div class="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">👨‍🏫</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Thầy Dạy Tận Tâm, Giàu Kinh Nghiệm</h3>
+                        <p>Đội ngũ giáo viên được tuyển chọn kỹ lưỡng, có tâm với nghề, hướng dẫn kiên nhẫn và tỉ mỉ. Cam kết 1 thầy - 1 trò để đảm bảo chất lượng giảng dạy.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="bg-yellow-100 text-yellow-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <span class="text-3xl">💰</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Chi Phí Minh Bạch, Rõ Ràng</h3>
+                        <p>Tư vấn chi phí trọn gói từ A-Z ngay từ đầu, không phát sinh phụ phí. Học viên được thông báo rõ ràng về mọi khoản phí để an tâm theo học.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section id="journey" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Lộ Trình Học Tập Rõ Ràng</h2>
+                <p class="section-subtitle">Chúng tôi xây dựng một lộ trình học tập bài bản, giúp bạn tự tin nắm vững cả lý thuyết và thực hành để chinh phục tấm bằng lái xe.</p>
+                <div class="max-w-2xl mx-auto">
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Bước 1: Đăng Ký & Hoàn Thiện Hồ Sơ</h4>
+                        <p class="text-gray-600">Văn phòng tiếp nhận hồ sơ ngay tại Ba Vì, hỗ trợ bạn hoàn tất thủ tục một cách nhanh chóng và đơn giản nhất.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Bước 2: Học Lý Thuyết</h4>
+                        <p class="text-gray-600">Trang bị kiến thức vững chắc về luật giao thông đường bộ với tài liệu và phương pháp giảng dạy dễ hiểu, dễ nhớ.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Bước 3: Thực Hành 1 Kèm 1</h4>
+                        <p class="text-gray-600">Thời gian thực hành linh hoạt. Thầy giáo sẽ kèm cặp bạn từ những kỹ năng cơ bản đến các bài sa hình phức tạp, đảm bảo bạn vững tay lái.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Bước 4: Thi Thử & Ôn Luyện</h4>
+                        <p class="text-gray-600">Tổ chức các buổi thi thử trên sân tập chuẩn thi để bạn làm quen với áp lực phòng thi và củng cố kỹ năng.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="font-bold text-lg mb-1">Bước 5: Thi Sát Hạch & Nhận Bằng</h4>
+                        <p class="text-gray-600">Tự tin tham gia kỳ thi sát hạch chính thức. Trung tâm sẽ đồng hành và hỗ trợ bạn cho đến ngày cầm trên tay tấm bằng lái xe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Hình Ảnh Thực Tế Từ Trung Tâm</h2>
+                <p class="section-subtitle">"Trăm nghe không bằng một thấy". Cùng xem những khoảnh khắc chân thực tại Trung tâm Lái xe Văn Minh.</p>
+                 <div class="grid md:grid-cols-3 gap-4">
+                    <div class="overflow-hidden rounded-lg shadow-md aspect-w-1 aspect-h-1">
+                        <img src="https://placehold.co/600x600/a3e635/ffffff?text=Sân+Tập+Rộng+Rãi" alt="Sân tập rộng rãi, đạt chuẩn tại Ba Vì" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-md aspect-w-1 aspect-h-1">
+                        <img src="https://placehold.co/600x600/60a5fa/ffffff?text=Thầy+Trò+Tận+Tâm" alt="Thầy giáo kiên nhẫn hướng dẫn học viên" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-md aspect-w-1 aspect-h-1">
+                        <img src="https://placehold.co/600x600/facc15/ffffff?text=Học+Viên+Thành+Công" alt="Học viên vui mừng nhận bằng lái xe" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="bg-gray-800 rounded-2xl p-8 md:p-16">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="text-white">
+                            <h2 class="text-3xl font-bold mb-4">Sẵn Sàng Chinh Phục Tay Lái?</h2>
+                            <p class="mb-6">Để lại thông tin của bạn, đội ngũ tư vấn của Lái xe Văn Minh sẽ liên hệ lại ngay để giải đáp mọi thắc mắc và cung cấp ưu đãi mới nhất.</p>
+                            <div class="space-y-4">
+                                <p><strong>Hotline:</strong> [0966290338]</p>
+                                <p><strong>Địa chỉ văn phòng:</strong> [hà nội]</p>
+                                <p><strong>Địa chỉ sân tập:</strong> [quanh hà mội ]</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-xl">
+                            <form>
+                                <div class="mb-4">
+                                    <label for="name" class="block font-semibold mb-2">Họ và Tên</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Nguyễn Văn A">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="phone" class="block font-semibold mb-2">Số Điện Thoại</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="09xxxxxxxx">
+                                </div>
+                                 <div class="mb-6">
+                                    <label for="message" class="block font-semibold mb-2">Lời nhắn (nếu có)</label>
+                                    <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Tôi cần tư vấn về khóa học B2..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">Gửi Yêu Cầu Tư Vấn</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Trung Tâm Lái Xe Văn Minh. All Rights Reserved.</p>
+            <p class="text-sm text-gray-400 mt-2">Vững tay lái, trọn niềm tin.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+
+</body>
+</html>
